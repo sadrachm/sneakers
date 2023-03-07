@@ -1,12 +1,12 @@
 package Controller;
 
 //import io.javalin.Javalin;
-import Service.sneakerService;
+import Service.SneakerService;
 
 
-public class sneakerController {
+public class SneakerController {
     SneakerService sneakerService;
-    public sneakerController(){
+    public SneakerController(){
         sneakerService = new SneakerService();
     }
 
