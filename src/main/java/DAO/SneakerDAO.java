@@ -46,4 +46,23 @@ public class SneakerDAO {
         }
         return sneakers;
     }
+
+    public List<Sneaker> getSneakersByColor(String color){
+        Connection connection = ConnectionSingleton.getConnection();
+        List<Sneaker> sneakers = new ArrayList<>();
+        try{
+            String sql = " SELECT * FROM sneaker WHERE color = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, color);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Sneaker sneaker = new Sneaker(resultSet.getString("name"), resultSet.getString("brand"),
+                        resultSet.getString("color"), resultSet.getDouble("price"));
+                sneakers.add(sneaker);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return sneakers;
+    }
 }
