@@ -4,6 +4,7 @@ import java.sql.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 
 import Util.ConnectionSingleton;
@@ -66,23 +67,22 @@ public class SneakerDAO {
         return sneakers;
     }
 
-    public Sneaker addNewSneaker(Sneaker sneaker){
+    public void addNewSneaker(Sneaker sneaker){
         Connection connection = ConnectionSingleton.getConnection();
         try {
+            System.out.println("HELLO WORLD");
             String sql = "INSERT INTO sneaker VALUES (?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, sneaker.name);
             preparedStatement.setString(2, sneaker.brand);
             preparedStatement.setString(3, sneaker.color);
             preparedStatement.setString(4, sneaker.price);
-            int resultSet = preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
 
-            return sneaker;
+//            return sneaker;
         }
         catch (SQLException e) {
             System.out.println( e.getMessage());
-
-            return null;
         }
 
     }

@@ -38,13 +38,13 @@ public class SneakerController {
     private void addNewSneaker(Context ctx) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
-        Sneaker addedSneaker = sneakerService.addNewSneaker(sneaker);
-        if(addedSneaker == null){
-            ctx.status(200);
-        } else {
-            ctx.status(200);
-            ctx.json(mapper.writeValueAsString(addedSneaker));
-        }
+//        Sneaker addedSneaker = sneakerService.addNewSneaker(sneaker);
+//        if(addedSneaker == null){
+//            ctx.status(200);
+//        } else {
+//            ctx.status(200);
+//            ctx.json(mapper.writeValueAsString(addedSneaker));
+//        }
     }
 
 }
