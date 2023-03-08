@@ -40,8 +40,9 @@ public class SneakerController {
         Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
         Sneaker addedSneaker = sneakerService.addNewSneaker(sneaker);
         if(addedSneaker == null){
-            ctx.status(400);
+            ctx.status(200);
         } else {
+            ctx.status(200);
             ctx.json(mapper.writeValueAsString(addedSneaker));
         }
     }

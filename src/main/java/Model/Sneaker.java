@@ -6,7 +6,7 @@ public class Sneaker {
     public String brand;
     public String price;
 
-    public Sneaker(String color, String name, String brand, String price) {
+    public Sneaker(String name, String brand, String color, String price) {
         this.color = color;
         this.name = name;
         this.brand = brand;
