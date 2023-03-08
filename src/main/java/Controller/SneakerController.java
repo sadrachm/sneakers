@@ -3,7 +3,6 @@ package Controller;
 import io.javalin.Javalin;
 import Service.SneakerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
 import io.javalin.http.Context;
 
 
@@ -13,7 +12,7 @@ public class SneakerController {
         sneakerService = new SneakerService();
     }
 
-    public Javalin StartAPI(){
+    public Javalin startAPI(){
         Javalin app = Javalin.create();
         app.get("/sneakers", this::getAllSneakers);
         app.get("/sneakers/{brand_name}", this::getSneakersByBrand);
