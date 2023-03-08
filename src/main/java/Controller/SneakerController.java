@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Sneaker;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import Service.SneakerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +19,7 @@ public class SneakerController {
         app.get("/sneakers", this::getAllSneakers);
         app.get("/sneakers/{brand_name}", this::getSneakersByBrand);
         app.get("/sneakers/color/{color}", this::getSneakersByColor);
+        app.post("/sneakers", this::addNewSneaker);
         return app;
     }
 
@@ -30,6 +33,17 @@ public class SneakerController {
 
     private void getSneakersByColor(Context ctx) throws JsonProcessingException {
         ctx.json(sneakerService.getSneakersByColor(ctx.pathParam("color")));
+    }
+
+    private void addNewSneaker(Context ctx) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
+        Sneaker addedSneaker = sneakerService.addNewSneaker(sneaker);
+        if(addedSneaker == null){
+            ctx.status(400);
+        } else {
+            ctx.json(mapper.writeValueAsString(addedSneaker));
+        }
     }
 
 }

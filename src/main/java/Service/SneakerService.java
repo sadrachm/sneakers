@@ -21,4 +21,8 @@ public class SneakerService {
         return sneakerDAO.getSneakersByColor(color);
     }
 
+    public Sneaker addNewSneaker(Sneaker sneaker) {
+        return sneakerDAO.addNewSneaker(sneaker);
+    }
+
 }

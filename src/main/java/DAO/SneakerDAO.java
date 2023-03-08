@@ -19,7 +19,7 @@ public class SneakerDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Sneaker sneaker = new Sneaker(resultSet.getString("name"), resultSet.getString("brand"),
-                        resultSet.getString("color"), resultSet.getDouble("price"));
+                        resultSet.getString("color"), resultSet.getString("price"));
                 sneakers.add(sneaker);
             }
         } catch (SQLException e) {
@@ -38,7 +38,7 @@ public class SneakerDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Sneaker sneaker = new Sneaker(resultSet.getString("name"), resultSet.getString("brand"),
-                        resultSet.getString("color"), resultSet.getDouble("price"));
+                        resultSet.getString("color"), resultSet.getString("price"));
                 sneakers.add(sneaker);
             }
         } catch (SQLException e) {
@@ -57,12 +57,33 @@ public class SneakerDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Sneaker sneaker = new Sneaker(resultSet.getString("name"), resultSet.getString("brand"),
-                        resultSet.getString("color"), resultSet.getDouble("price"));
+                        resultSet.getString("color"), resultSet.getString("price"));
                 sneakers.add(sneaker);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return sneakers;
+    }
+
+    public Sneaker addNewSneaker(Sneaker sneaker){
+        Connection connection = ConnectionSingleton.getConnection();
+        try {
+            String sql = "INSERT INTO sneaker VALUES (?, ?, ?, ?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, sneaker.name);
+            preparedStatement.setString(2, sneaker.brand);
+            preparedStatement.setString(3, sneaker.color);
+            preparedStatement.setString(4, sneaker.price);
+            int resultSet = preparedStatement.executeUpdate();
+
+            return sneaker;
+        }
+        catch (SQLException e) {
+            System.out.println( e.getMessage());
+
+            return null;
+        }
+
     }
 }
