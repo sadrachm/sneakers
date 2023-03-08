@@ -1,3 +1,13 @@
---h2 is typically used to setup a test database, not a prod database.
---first, drop your tables (to reset your database for testing)
---then create your tables
+DROP Table Sneaker;
+CREATE TABLE Sneaker (name varchar(255) PRIMARY KEY,brand varchar(255),color varchar(255),price varchar(255));
+INSERT INTO Sneaker VALUES ('Air Force 1','Nike', 'White', '99.99');
+INSERT INTO Sneaker VALUES ('Air Max 95','Nike', 'Black', '75.99');
+INSERT INTO Sneaker VALUES ('Air Max 97','Nike', 'Red', '85.99');
+INSERT INTO Sneaker VALUES ('Lebron 8','Nike', 'Yellow', '69.99');
+INSERT INTO Sneaker VALUES ('Question','Adidas', 'Black', '45.99');
+INSERT INTO Sneaker VALUES ('yeezy','Adidas', 'White', '99.99');
+INSERT INTO Sneaker VALUES ('Chuck Taylor','Converse', 'Black', '39.99');
+INSERT INTO Sneaker VALUES ('Run Star','Converse', 'White', '79.99');
+INSERT INTO Sneaker VALUES ('Shaq Attack','Reebok', 'Blue', '45.99');
+INSERT INTO Sneaker VALUES ('Nano X 2','Reebok', 'Black', '39.99');
+SELECT * FROM Sneaker;

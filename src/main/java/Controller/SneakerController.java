@@ -1,6 +1,6 @@
 package Controller;
 
-//import io.javalin.Javalin;
+import io.javalin.Javalin;
 import Service.SneakerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

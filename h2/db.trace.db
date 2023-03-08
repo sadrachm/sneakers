@@ -4,3 +4,158 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "--h2 is 
 --first, drop your tables (to reset your database for testing)
 --then create your tables
 afdbfdb [42001-214]
+2023-03-08 10:21:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "SMALLMONEY"; SQL statement:
+--h2 is typically used to setup a test database, not a prod database.
+--first, drop your tables (to reset your database for testing)
+--then create your tables
+CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price smallmoney) [50004-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:6249)
+	at org.h2.command.Parser.readIfDataType(Parser.java:6087)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:6069)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5948)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:9331)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:9271)
+	at org.h2.command.Parser.parseCreate(Parser.java:6784)
+	at org.h2.command.Parser.parsePrepared(Parser.java:763)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:7)
+2023-03-08 10:22:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "--h2 is typically used to setup a test database, not a prod database.\000a--first, drop your tables (to reset your database for testing)\000a--then create your tables\000aCREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price double[*](10,2))"; expected "PRECISION, ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+--h2 is typically used to setup a test database, not a prod database.
+--first, drop your tables (to reset your database for testing)
+--then create your tables
+CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price double(10,2)) [42001-214]
+2023-03-08 10:22:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price double[*](10,2))"; expected "PRECISION, ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price double(10,2)) [42001-214]
+2023-03-08 10:24:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price varchar(255)[*]"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE sneaker (name varchar(255), brand varchar(255), color varchar(255), price varchar(255) [42001-214]
+2023-03-08 10:24:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "PRIMARY"; SQL statement:
+CREATE TABLE sneaker (name PRIMARY KEY varchar(255), brand varchar(255), color varchar(255), price varchar(255) [50004-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:6249)
+	at org.h2.command.Parser.readIfDataType(Parser.java:6087)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:6069)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5948)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:9331)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:9271)
+	at org.h2.command.Parser.parseCreate(Parser.java:6784)
+	at org.h2.command.Parser.parsePrepared(Parser.java:763)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:7)
+2023-03-08 10:24:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE sneaker (name varchar(255) PRIMARY KEY, brand varchar(255), color varchar(255), price varchar(255)[*]"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE sneaker (name varchar(255) PRIMARY KEY, brand varchar(255), color varchar(255), price varchar(255) [42001-214]
+2023-03-08 10:26:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE sneaker (\000aname varchar(255) PRIMARY KEY,\000abrand varchar(255),\000acolor varchar(255),\000aprice varchar(255)[*]"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE sneaker (
+name varchar(255) PRIMARY KEY,
+brand varchar(255),
+color varchar(255),
+price varchar(255) [42001-214]
+2023-03-08 10:29:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SNEAKER" not found; SQL statement:
+DROP TABLE sneaker [42102-214]
+2023-03-08 10:30:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000aCREATE TABLE Sneaker (name varchar(255) PRIMARY KEY,brand varchar(255),color varchar(255),price varchar(255)[*]"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+
+CREATE TABLE Sneaker (name varchar(255) PRIMARY KEY,brand varchar(255),color varchar(255),price varchar(255) [42001-214]
+2023-03-08 10:31:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SNEAKER" already exists; SQL statement:
+CREATE TABLE Sneaker (name varchar(255) PRIMARY KEY,brand varchar(255),color varchar(255),price varchar(255)) [42101-214]
+2023-03-08 10:31:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "Air Force 1" not found; SQL statement:
+INSERT INTO sneaker VALUES ("Air Force 1","Nike", "White", "99.99") [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:300)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:7)
+2023-03-08 10:32:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "Air Force 1" not found; SQL statement:
+INSERT INTO Sneaker VALUES ("Air Force 1","Nike", "White", "99.99") [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:300)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:7)
+2023-03-08 10:33:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "Nike" not found; SQL statement:
+INSERT INTO Sneaker VALUES ('Air Force 1',"Nike", "White", "99.99") [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:300)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:575)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:237)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.tools.RunScript.execute(RunScript.java:169)
+	at Util.ConnectionSingleton.resetTestDatabase(ConnectionSingleton.java:64)
+	at Util.ConnectionSingleton.getConnection(ConnectionSingleton.java:44)
+	at Application.main(Application.java:7)
