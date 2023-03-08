@@ -69,7 +69,7 @@ public class SneakerDAO {
     public Sneaker addNewSneaker(Sneaker sneaker){
         Connection connection = ConnectionSingleton.getConnection();
         try {
-            String sql = "INSERT INTO sneaker VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO sneaker (name, brand, color, price) VALUES (?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, sneaker.name);
             preparedStatement.setString(2, sneaker.brand);
