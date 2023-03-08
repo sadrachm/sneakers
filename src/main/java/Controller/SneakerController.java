@@ -2,6 +2,9 @@ package Controller;
 
 //import io.javalin.Javalin;
 import Service.SneakerService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import io.javalin.http.Context;
 
 
 public class SneakerController {
@@ -18,16 +21,16 @@ public class SneakerController {
         return app;
     }
 
-    private void getAllSneakers(context ctx) throws JsonProcessingException {
+    private void getAllSneakers(Context ctx) throws JsonProcessingException {
         ctx.json(sneakerService.getAllSneakers());
     }
 
-    private void getSneakersByBrand(context ctx) throws JsonProcessingException {
-        ctx.json(sneakerService.getSneakersByBrand());
+    private void getSneakersByBrand(Context ctx) throws JsonProcessingException {
+        ctx.json(sneakerService.getSneakersByBrand(ctx.pathParam("brand_name")));
     }
 
-    private void getSneakersByColor(context ctx) throws JsonProcessingException {
-        ctx.json(sneakerService.getSneakersByColor());
+    private void getSneakersByColor(Context ctx) throws JsonProcessingException {
+        ctx.json(sneakerService.getSneakersByColor(ctx.pathParam("color")));
     }
 
 }
