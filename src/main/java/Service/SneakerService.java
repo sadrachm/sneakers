@@ -25,4 +25,8 @@ public class SneakerService {
         return sneakerDAO.addNewSneaker(sneaker);
     }
 
+    public void deleteSneaker(String name) {
+        sneakerDAO.deleteSneaker(name);
+    }
+
 }

@@ -20,6 +20,7 @@ public class SneakerController {
         app.get("/sneakers/{brand_name}", this::getSneakersByBrand);
         app.get("/sneakers/color/{color}", this::getSneakersByColor);
         app.post("/sneakers", this::addNewSneaker);
+        app.delete("/sneakers", this::deleteSneaker);
         return app;
     }
 
@@ -44,6 +45,11 @@ public class SneakerController {
         } else {
             ctx.status(200);
         }
+    }
+    private void deleteSneaker(Context ctx) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
+        sneakerService.deleteSneaker(sneaker.getName());
     }
 
 }

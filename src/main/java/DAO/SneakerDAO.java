@@ -8,6 +8,7 @@ import java.util.List;
 
 import Util.ConnectionSingleton;
 import Model.Sneaker;
+import org.h2.command.Prepared;
 
 public class SneakerDAO {
     public List<Sneaker> getAllSneakers() {
@@ -85,5 +86,17 @@ public class SneakerDAO {
             return null;
         }
 
+    }
+
+    public void deleteSneaker(String name) {
+        Connection conn = ConnectionSingleton.getConnection();
+        try {
+            String sql = "DELETE FROM sneaker WHERE name = ?";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1,name);
+            int resultSet = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }
