@@ -29,4 +29,8 @@ public class SneakerService {
         sneakerDAO.deleteSneaker(name);
     }
 
+    public void updateSneaker(Sneaker sneaker) {
+        sneakerDAO.updateSneaker((sneaker));
+    }
+
 }

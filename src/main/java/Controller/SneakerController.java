@@ -21,6 +21,7 @@ public class SneakerController {
         app.get("/sneakers/color/{color}", this::getSneakersByColor);
         app.post("/sneakers", this::addNewSneaker);
         app.delete("/sneakers", this::deleteSneaker);
+        app.patch("sneakers", this::updateSneaker);
         return app;
     }
 
@@ -50,6 +51,13 @@ public class SneakerController {
         ObjectMapper mapper = new ObjectMapper();
         Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
         sneakerService.deleteSneaker(sneaker.getName());
+    }
+
+    private void updateSneaker(Context ctx) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
+        System.out.println(sneaker.toString());
+        sneakerService.updateSneaker(sneaker);
     }
 
 }
