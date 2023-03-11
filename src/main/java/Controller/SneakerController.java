@@ -20,7 +20,7 @@ public class SneakerController {
         app.get("/sneakers/{brand_name}", this::getSneakersByBrand);
         app.get("/sneakers/color/{color}", this::getSneakersByColor);
         app.post("/sneakers", this::addNewSneaker);
-        app.patch("sneakers", this::updateSneaker);
+        app.patch("/sneakers", this::updateSneaker);
         return app;
     }
 
@@ -47,9 +47,11 @@ public class SneakerController {
         }
     }
 
-    private void updateAmount(Context ctx) throws JsonProcessingException {
+    private void updateSneaker(Context ctx) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Sneaker sneaker = mapper.readValue(ctx.body(), Sneaker.class);
+        System.out.println(sneaker.toString());
+        sneakerService.updateSneaker(sneaker);
 
 
     }

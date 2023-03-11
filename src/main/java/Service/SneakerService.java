@@ -24,5 +24,8 @@ public class SneakerService {
     public Sneaker addNewSneaker(Sneaker sneaker) {
         return sneakerDAO.addNewSneaker(sneaker);
     }
+    public void updateSneaker(Sneaker sneaker) {
+        sneakerDAO.updateSneaker(sneaker);
+    }
 
 }

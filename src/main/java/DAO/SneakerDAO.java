@@ -86,4 +86,18 @@ public class SneakerDAO {
         }
 
     }
+    public void updateSneaker(Sneaker sneaker) {
+        Connection conn = ConnectionSingleton.getConnection();
+        try {
+            String sql = "UPDATE sneaker SET brand = ?, color = ?, price =? WHERE name=?;";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, sneaker.brand);
+            preparedStatement.setString(2, sneaker.color);
+            preparedStatement.setString(3, sneaker.price);
+            preparedStatement.setString(4, sneaker.name);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }
