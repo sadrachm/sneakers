@@ -89,7 +89,7 @@ public class SneakerDAO {
     public void updateSneaker(Sneaker sneaker) {
         Connection conn = ConnectionSingleton.getConnection();
         try {
-            String sql = "UPDATE sneaker SET brand = ?, color = ?, price =? WHERE name=?;";
+            String sql = "UPDATE sneaker SET brand = ?, color = ?, price = ? WHERE name = ?;";
             PreparedStatement preparedStatement = conn.prepareStatement(sql);
             preparedStatement.setString(1, sneaker.brand);
             preparedStatement.setString(2, sneaker.color);
